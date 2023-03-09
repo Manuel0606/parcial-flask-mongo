@@ -4,6 +4,7 @@ from registro import Registro
 
 db_conection = Conexion()
 app = Flask(__name__)
+app.secret_key = 'some_secret'
 
 def mensaje_segun_altura(altura):
     text=""
