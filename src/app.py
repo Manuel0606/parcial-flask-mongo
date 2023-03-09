@@ -5,6 +5,15 @@ from registro import Registro
 db_conection = Conexion()
 app = Flask(__name__)
 
+def validarDatos(nombre, altura):
+    try: 
+        altura = float(altura)
+        valadacion = True if altura > 0 else False
+        valadacion = True if nombre.len() > 0 else False
+        return valadacion
+    except:
+        return False
+
 @app.route('/registro_usuario')
 def registroUsuario():
     return render_template('registro_altura.html')
