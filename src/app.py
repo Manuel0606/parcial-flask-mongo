@@ -55,6 +55,22 @@ def registro():
     else:
         return 'Error'
 
+
+@app.route('/registro_por_parametros/<string:nombre>/<float:altura>')
+def registro_por_parametros(nombre="", altura=0.0):
+    registros = db_conection['Datos']
+    if nombre and altura :
+        mensaje = mensaje_segun_altura(float(altura))
+        print(mensaje)
+        flash(mensaje)
+        registro = Registro(nombre, altura)
+        registros.insert_one(registro.formato_doc())
+        return redirect(url_for('registroAltura'))
+    else:
+        return 'Error'
+
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
