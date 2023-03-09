@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from config import *
 from registro import Registro
+import time
 
 db_conection = Conexion()
 app = Flask(__name__)
@@ -44,6 +45,12 @@ def registro():
     registros = db_conection['Datos']
     nombre = request.form['nombre']
     altura = request.form['altura']
+
+    validacion = validarDatos(nombre=nombre, altura=altura)
+
+    if not validacion :
+        flash('Datos invalidos')
+        return redirect(url_for('registroAltura'))
 
     if nombre and altura :
         mensaje = mensaje_segun_altura(float(altura))
