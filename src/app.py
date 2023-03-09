@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, flash
 from config import *
 from registro import Registro
 
@@ -25,8 +25,8 @@ def mensaje_segun_altura(altura):
         text = "Persona demasiado alta"
     return text
 
-@app.route('/registro_usuario')
-def registroUsuario():
+@app.route('/registro_altura')
+def registroAltura():
     return render_template('registro_altura.html')
 
 @app.route('/registro', methods=['POST'])
@@ -36,11 +36,12 @@ def registro():
     altura = request.form['altura']
 
     if nombre and altura :
-        mensaje = mensaje_segun_altura(altura)
+        mensaje = mensaje_segun_altura(float(altura))
         print(mensaje)
+        flash(mensaje)
         registro = Registro(nombre, altura)
         registros.insert_one(registro.formato_doc())
-        return redirect(url_for('registroUsuario'))
+        return redirect(url_for('registroAltura'))
     else:
         return 'Error'
 
