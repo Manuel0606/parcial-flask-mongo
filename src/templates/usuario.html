@@ -1,0 +1,21 @@
+{% extends './layout.html' %}
+
+{% block titulo %}
+  {{data.nombre}}
+{% endblock %}
+
+{% block encabezado %}
+  {{data.nombre}}
+{% endblock %}
+
+{% block body %}
+<div class="info">
+  <div class="datos">
+    <h1>{{data.nombreCompleto}}</h1>
+    <p>{{data.biografia}}</p>
+  </div>
+  <div class="container-foto">
+    <img class="foto" src="{{ url_for('static', filename=data.foto_url) }}" alt="My Image">
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends './layout.html' %}
+
+{% block titulo %}
+  Registro
+{% endblock %}
+
+{% block encabezado %}
+  Crear registro
+{% endblock %}
+
+{% block body %}
+<div class="formulario">
+  <div class="form-container">
+
+  <p class="subtitle">Danos tu opinión</p>
+
+
+  <form action="/registro" method="POST" class="form">
+    <label for="nombre" class="label">Nombre</label>
+    <input type="text" name="nombre" id="nombre" placeholder="nombre" class="input input-nombre">
+  
+    <label for="correo" class="label">Correo</label>
+    <input type="text" name="correo" id="correo" placeholder="correo@ejemplo" class="input input-correo">
+    
+    <label for="mensaje" class="label">Mensaje</label>
+    <input type="text" name="mensaje" id="mensaje" placeholder="Mensaje...." class="input input-mensaje">
+  
+    <input type="submit" value="Enviar" class="primary-button login-button">
+  </form>
+</div>
+
+</div>
+{% endblock %}
