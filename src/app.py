@@ -13,11 +13,10 @@ def registroUsuario():
 def registro():
     registros = db_conection['Datos']
     nombre = request.form['nombre']
-    correo = request.form['correo']
-    mensaje = request.form['mensaje']
+    altura = request.form['altura']
 
-    if nombre and correo and mensaje:
-        registro = Registro(nombre, correo, mensaje)
+    if nombre and altura :
+        registro = Registro(nombre, altura)
         registros.insert_one(registro.formato_doc())
         return redirect(url_for('registroUsuario'))
     else:

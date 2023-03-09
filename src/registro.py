@@ -1,13 +1,11 @@
 class Registro:
 
-    def __init__(self, nombre, correo, mensaje):
+    def __init__(self, nombre, altura):
         self.nombre = nombre
-        self.correo = correo
-        self.mensaje = mensaje
+        self.altura = altura
     
     def formato_doc(self):
         return {
             'nombre': self.nombre,
-            'correo': self.correo,
-            'mensaje': self.mensaje
+            'altura': self.altura
         }
