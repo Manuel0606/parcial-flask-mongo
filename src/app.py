@@ -5,8 +5,8 @@ from registro import Registro
 db_conection = Conexion()
 app = Flask(__name__)
 
-@app.route('/registro_usuario')
-def registroUsuario():
+@app.route('/registro_altura')
+def registroAltura():
     return render_template('registro_altura.html')
 
 @app.route('/registro', methods=['POST'])
@@ -18,7 +18,7 @@ def registro():
     if nombre and altura :
         registro = Registro(nombre, altura)
         registros.insert_one(registro.formato_doc())
-        return redirect(url_for('registroUsuario'))
+        return redirect(url_for('registroAltura'))
     else:
         return 'Error'
 
