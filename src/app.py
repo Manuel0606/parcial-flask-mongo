@@ -8,9 +8,9 @@ app = Flask(__name__)
 def validarDatos(nombre, altura):
     try: 
         altura = float(altura)
-        valadacion = True if altura > 0 else False
-        valadacion = True if nombre.len() > 0 else False
-        return valadacion
+        validacion = True if altura > 0 else False
+        validacion = True if nombre.len() > 0 else False
+        return validacion
     except:
         return False
 
