@@ -26,10 +26,6 @@ def mensaje_segun_altura(altura):
         text = "Persona demasiado alta"
     return text
 
-@app.route('/registro_altura')
-def registroAltura():
-    return render_template('registro_altura.html')
-
 def validarDatos(nombre, altura):
     try: 
         altura = float(altura)
@@ -38,6 +34,10 @@ def validarDatos(nombre, altura):
         return validacion
     except:
         return False
+    
+@app.route('/registro_altura')
+def registroAltura():
+    return render_template('registro_altura.html')
 
 @app.route('/registro', methods=['POST'])
 def registro():
