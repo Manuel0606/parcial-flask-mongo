@@ -30,8 +30,8 @@ def mensaje_segun_altura(altura):
 def validarDatos(nombre, altura):
     try: 
         altura = float(altura)
-        validacion = True if altura > 0 else False
-        validacion = True if nombre.len() > 0 else False
+        validacion = True if altura > 0.0 else False
+        validacion = True if len(nombre) > 0 else False
         return validacion
     except:
         return False
