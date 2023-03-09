@@ -7,11 +7,11 @@ app = Flask(__name__)
 
 @app.route('/registro_usuario')
 def registroUsuario():
-    return render_template('registro.html')
+    return render_template('registro_altura.html')
 
 @app.route('/registro', methods=['POST'])
 def registro():
-    registros = db_conection['Registro']
+    registros = db_conection['Datos']
     nombre = request.form['nombre']
     correo = request.form['correo']
     mensaje = request.form['mensaje']

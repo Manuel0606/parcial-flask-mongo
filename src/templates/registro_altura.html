@@ -5,25 +5,22 @@
 {% endblock %}
 
 {% block encabezado %}
-  Crear registro
+  Crear registro de la altura
 {% endblock %}
 
 {% block body %}
 <div class="formulario">
   <div class="form-container">
 
-  <p class="subtitle">Danos tu opinión</p>
+  <p class="subtitle">Escribe tu nombre y tu altura en metros</p>
 
 
   <form action="/registro" method="POST" class="form">
     <label for="nombre" class="label">Nombre</label>
     <input type="text" name="nombre" id="nombre" placeholder="nombre" class="input input-nombre">
   
-    <label for="correo" class="label">Correo</label>
-    <input type="text" name="correo" id="correo" placeholder="correo@ejemplo" class="input input-correo">
-    
-    <label for="mensaje" class="label">Mensaje</label>
-    <input type="text" name="mensaje" id="mensaje" placeholder="Mensaje...." class="input input-mensaje">
+    <label for="altura" class="label">Altura en metros</label>
+    <input type="text" name="altura" id="altura" placeholder="1.5" class="input input-altura">
   
     <input type="submit" value="Enviar" class="primary-button login-button">
   </form>
