@@ -30,6 +30,15 @@ def mensaje_segun_altura(altura):
 def registroAltura():
     return render_template('registro_altura.html')
 
+def validarDatos(nombre, altura):
+    try: 
+        altura = float(altura)
+        validacion = True if altura > 0 else False
+        validacion = True if nombre.len() > 0 else False
+        return validacion
+    except:
+        return False
+
 @app.route('/registro', methods=['POST'])
 def registro():
     registros = db_conection['Datos']
