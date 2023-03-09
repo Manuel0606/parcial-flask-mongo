@@ -5,6 +5,26 @@ from registro import Registro
 db_conection = Conexion()
 app = Flask(__name__)
 
+def mensaje_segun_altura(altura):
+    text=""
+    ALTURA = {
+        "baja": 1.50,
+        "media": 1.70,
+        "alta": 1.90,
+        "muy_alta": 2.30
+    }
+    if altura <= ALTURA["baja"]:
+        text = "Persona de altura baja"
+    elif altura <= ALTURA["media"]:
+        text = "Persona de altura media"
+    elif altura <= ALTURA["alta"]:
+        text = "Persona alta"
+    elif altura <= ALTURA["muy_alta"]:
+        text = "Persona muy alta"
+    else:
+        text = "Persona demasiado alta"
+    return text
+
 @app.route('/registro_usuario')
 def registroUsuario():
     return render_template('registro_altura.html')
@@ -16,6 +36,8 @@ def registro():
     altura = request.form['altura']
 
     if nombre and altura :
+        mensaje = mensaje_segun_altura(altura)
+        print(mensaje)
         registro = Registro(nombre, altura)
         registros.insert_one(registro.formato_doc())
         return redirect(url_for('registroUsuario'))
